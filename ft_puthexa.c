@@ -14,38 +14,20 @@
 
 static int	nbmr_size(unsigned int n);
 
-int	ft_puthexa(int n, char c)
+int	ft_puthexa(unsigned int n, char c)
 {
-	unsigned int	number;
-	unsigned int	size;
+	int				size;
 	char			*base_low;
 	char			*base_upper;
 
-	number = 0;
 	size = 0;
 	base_low = "0123456789abcdef";
 	base_upper = "0123456789ABCDEF";
-	number = (unsigned int) n;
-	size = nbmr_size(number);
-	if (number >= 16)
-		ft_puthexa(number / 16, c);
-	number = number % 16;
+	if (n >= 16)
+		size += ft_puthexa(n / 16, c);
 	if (c == 'x')
-		write(1, &base_low[number], 1);
+		write(1, &base_low[n % 16], 1);
 	else
-		write(1, &base_upper[number], 1);
-	return (size);
-}
-
-static int	nbmr_size(unsigned int n)
-{
-	int	size;
-
-	size = 1;
-	while (n / 16)
-	{
-		size++;
-		n /= 16;
-	}
+		write(1, &base_upper[n % 16], 1);
 	return (size);
 }

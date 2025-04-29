@@ -21,7 +21,6 @@ int	ft_putnmb(int n)
 
 	total = 0;
 	number = 0;
-	total = nbmr_size(n);
 	if (n == -2147483648)
 	{
 		write(1, "-2147483648", 11);
@@ -34,21 +33,8 @@ int	ft_putnmb(int n)
 		total ++;
 	}
 	if (n > 9)
-		ft_putnmb(n / 10);
+		total += ft_putnmb(n / 10);
 	number = ((n % 10) + '0');
 	write(1, &number, 1);
 	return (total);
-}
-
-static int	nbmr_size(int n)
-{
-	int	size;
-
-	size = 1;
-	while (n / 10)
-	{
-		size++;
-		n /= 10;
-	}
-	return (size);
 }

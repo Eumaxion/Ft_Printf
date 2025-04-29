@@ -18,19 +18,15 @@ static void	ft_print_p(unsigned long n);
 int	ft_putpointer(unsigned long n)
 {
 	int				size;
-	unsigned long	number;
 
-	size = 0;
-	number = 0;
 	if (!n)
 	{
 		write(1, "(nil)", 5);
 		return (5);
 	}
-	number = (unsigned long)n;
-	size = nbmr_size(number) + 2;
 	write(1, "0x", 2);
 	ft_print_p(number);
+	size = nbmr_size(number) + 2;
 	return (size);
 }
 
@@ -54,6 +50,5 @@ static void	ft_print_p(unsigned long n)
 	base = "0123456789abcdef";
 	if (n >= 16)
 		ft_print_p(n / 16);
-	n = n % 16;
-	write(1, &base[n], 1);
+	write(1, &base[n % 16], 1);
 }

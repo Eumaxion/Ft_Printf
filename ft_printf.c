@@ -25,7 +25,7 @@ int	ft_printf(const char *format, ...)
 	va_start(arg, format);
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + i])
+		if (format[i] == '%' && format[i + 1])
 		{
 			i++;
 			total += find_format(arg, format[i]);
@@ -53,7 +53,7 @@ static int	find_format(va_list s, char c)
 	if (c == 'p')
 		return (ft_putpointer(va_arg(s, unsigned long)));
 	if (c == 'x' || c == 'X')
-		return (ft_puthexa(va_arg(s, int), c));
+		return (ft_puthexa(va_arg(s, unsigned int), c));
 	else
 		return (ft_putchar(c));
 }

@@ -17,27 +17,13 @@ static int	nbmr_size(unsigned int n);
 int	ft_unsignmb(unsigned int n)
 {
 	int				total;
-	unsigned int	number;
+	char			number;
 
 	total = 0;
-	number = 0;
 	if (n > 9)
-		ft_putnmb(n / 10);
+		total += ft_unsignmb(n / 10);
 	number = ((n % 10) + '0');
 	write(1, &number, 1);
-	total = nbmr_size(n);
+	total++;
 	return (total);
-}
-
-static int	nbmr_size(unsigned int n)
-{
-	int	size;
-
-	size = 1;
-	while (n / 10)
-	{
-		size++;
-		n /= 10;
-	}
-	return (size);
 }
