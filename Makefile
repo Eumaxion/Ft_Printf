@@ -2,19 +2,19 @@ NAME = libftprintf.a
 
 SOURCES = ft_printf.c	ft_putchar.c	ft_putstr.c		ft_putnmb.c		ft_unsignmb.c	ft_puthexa.c	ft_putpointer.c\
 
-OBJECTS = $(SOURCES:.c=.o)
-
 FLAGS += -Wall -Werror -Wextra
 
 RM += rm -f
 
+OBJECTS = $(SOURCES:.c=.o)
+
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-		ar -r $(NAME)  $(OBJECTS)
-
 .c.o:
-	cc $(FLAGS) -c $< -o ${<:.c=.o}
+	cc $(FLAGS) -c $< -o $(<:.c=.o)
+
+$(NAME): $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS)
 
 clean:
 	$(RM) $(OBJECTS)

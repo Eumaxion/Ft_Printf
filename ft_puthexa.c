@@ -6,17 +6,15 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 10:39:57 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/04/29 17:14:15 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/04/30 11:11:25 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	nbmr_size(unsigned int n);
-
 int	ft_puthexa(unsigned int n, char c)
 {
-	int				size;
+	unsigned int	size;
 	char			*base_low;
 	char			*base_upper;
 
@@ -29,5 +27,5 @@ int	ft_puthexa(unsigned int n, char c)
 		write(1, &base_low[n % 16], 1);
 	else
 		write(1, &base_upper[n % 16], 1);
-	return (size);
+	return (++size);
 }

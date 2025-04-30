@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 14:51:20 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/04/29 17:33:57 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/04/30 11:40:30 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	ft_printf(const char *format, ...)
 
 static int	find_format(va_list s, char c)
 {
+	if (c == '%')
+		return (ft_putchar(('%')));
 	if (c == 'c')
 		return (ft_putchar(va_arg(s, int)));
 	if (c == 's')
@@ -55,5 +57,5 @@ static int	find_format(va_list s, char c)
 	if (c == 'x' || c == 'X')
 		return (ft_puthexa(va_arg(s, unsigned int), c));
 	else
-		return (ft_putchar(c));
+		return (0);
 }
