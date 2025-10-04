@@ -13,7 +13,7 @@ Throughout the project, I learned how to handle a variable number of arguments u
 Clone the repository:  
 
 ```  
-git clone https://github.com/yourusername/ft_printf.git
+git clone https://github.com/Eumaxion/ft_printf.git
 cd ft_printf 
 
 ```
